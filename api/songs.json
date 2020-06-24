@@ -1,0 +1,57 @@
+{
+    "HipHop": [
+        { "id": 1, "name": "99 problems", "author": "Jay-Z" }, 
+        { "id": 2, "name": "Lose yourself", "author": "Eminem"  },    
+        { "id": 3, "name": "DNA", "author": "Kendrick Lamar"  },
+        { "id": 4, "name": "Holly Ghost", "author": "A$AP Rocky" },
+        { "id": 5, "name": "10 bands", "author": "Drake" },
+        { "id": 6, "name": "Who dat boy ?", "author": "Tyler The Creator" },
+        { "id": 7, "name": "No role modelz", "author": "J Cole" },
+        { "id": 8, "name": "Ladders", "author": "Mac Miller" },
+        { "id": 9, "name": "Big Poppa", "author": "The Notorius B.I.G." },
+        { "id": 10, "name": "It's All On Me", "author": "Doctor Dre" }        
+    ],
+
+    "RockNRoll": [
+        { "id": 11, "name": "Yesterday", "author": "The Beatles" },
+        { "id": 12, "name": "Sweet Virginia", "author": "The Rolling Stones" },
+        { "id": 13, "name": "Behind Blue Eyes", "author": "The Who" },
+        { "id": 14, "name": "Riders on the storm", "author": "The Doors" },
+        { "id": 15, "name": "With or Without You", "author": "U2" },
+        { "id": 16, "name": "We are the Champions", "author": "Queen" },
+        { "id": 17, "name": "Otherside", "author": "Red Hot Chili Peppers" },
+        { "id": 18, "name": "The Unforgiven", "author": "Metallica" },
+        { "id": 19, "name": "Stay Away", "author": "Nirvana" },
+        { "id": 20, "name": "Another brick in the wall", "author": "Pink Floyd" }
+    ],
+
+    "Funk": [
+        { "id": 21, "name": "The Payback", "author": "James Brown" },
+        { "id": 22, "name": "You dropped a bomb on me", "author": "The Gap Band" },
+        { "id": 23, "name": "Lady Marmalade", "author": "LaBelle" },
+        { "id": 24, "name": "Play that Funky Music", "author": "Wild Cherry" },
+        { "id": 25, "name": "For the Love of Money", "author": "The O'Jays" },
+        { "id": 26, "name": "Dazz", "author": "Brick" },
+        { "id": 27, "name": "Cissy strut", "author": "The Meters" },
+        { "id": 28, "name": "Superstition", "author": "Stivie Wonder" },
+        { "id": 29, "name": "Use me", "author": "Bill Withers" },
+        { "id": 30, "name": "Super Freak", "author": "Rick James" }
+    ],
+
+    "Pop": [
+        { "id": 31, "name": "Sk8er Boi", "author": "Avril Lavigne" },
+        { "id": 32, "name": "Tik Tok", "author": "Kesha" },
+        { "id": 33, "name": "Baby", "author": "Justin Bieber" },
+        { "id": 34, "name": "The sweet escape", "author": "Gwen Stefani" },
+        { "id": 35, "name": "7 days", "author": "Craig David" },
+        { "id": 36, "name": "Leave", "author": "Jojo" },
+        { "id": 37, "name": "With you", "author": "Chris Brown" },
+        { "id": 38, "name": "Believe", "author": "Cher" },
+        { "id": 39, "name": "Viva la Vida", "author": "Coldplay" },
+        { "id": 40, "name": "Smile", "author": "Lily Allen" }
+    ],
+
+    "namesOfUsersPlaylists": [
+        
+    ]
+}
