@@ -6,105 +6,123 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
-import StopIcon from '@material-ui/icons/Stop';
-import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 
 import Song from './componentsForSecongPage/Song';
 import Playlistadder from './componentsForSecongPage/Playlistadder';
 import Songadder from './componentsForSecongPage/Songadder';
 import Songbuttons from './componentsForSecongPage/Songbuttons';
 import SongbuttonsSmall from './componentsForSecongPage/SongbuttonsSmall';
-// import { func } from 'prop-types';
-// import { yellow } from '@material-ui/core/colors';
 
-const styles = {
-	root: {
-        flexBasis: '100%',
-        backgroundImage: `url(http://oki-nadejda.com/wp-content/uploads/muzikalen.jpg)`,
-        backgroundSize: '100% 100%',
-        display: 'flex',
-        // flexDirection: 'column',
-        justifyContent: 'center',
-        fontFamily: 'Roboto, Helvetica, Arial, sans-serif;'
-    },
-    
-    sBigContainers: {
-        width: '50%'
-    },
+import BackgroundImage from '../img/second.png';
 
-    sForm: {
-        height: '100%',
-        backgroundColor: 'white',
-        display: 'flex',
-        flexDirection: 'column',
-        opacity: '0.8'
-    },
+const styles = theme => ({
 
-    sForm2: {
-        backgroundColor: '#d2eaf7',
-    },
-
-    sContainerPlaylistsAndSongs: {
-        height: '100%',
-        width: '100%',
-        display: 'flex'
-    },
-    
-    sSongsContainer: {
-        display: 'flex',
-        flexDirection: 'column',
-        marginLeft: '4%',
-        width: '100%',
-        fontSize: '0.9em',        
-    },
-
-    sTabs: {
-        minWidth: '100%',
-        maxWidth: '100px'
-    },
-
-    sSongAndButtonsCont: {
-        flexGrow: '1',
-        display: 'flex',
-        justifyContent: 'space-between',        
-        borderTop: 'dotted 1px'
-    },
-
-    sContainerH2AndPlaylistadder: {
-        display: 'flex'
-    },
-
-    sContainerSongsSongadderDeleteplaylist: {
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between'
-    },
-
-    secondContSongsSongsadderDeletepllstbttn: {
-        marginLeft: '4%',
-        width: '100%',
-        position: 'relative'
-    },
-
-    sDeletePlIcon: {
-        position: 'absolute',
-        bottom: '0',
-        right: '0'
-    },
-
-    sAnimation: {
-        animation: 'appear 0.5s ease'
-    },
-
-    '@keyframes appear': {
-        '0%': {
-          opacity: '0',
+        root: {
+            flexBasis: '100%',
+            backgroundImage: `url(${ BackgroundImage })`,
+            backgroundSize: '100% 100%',
+            '@media (max-width: 1030px)': {
+                flexDirection: 'column',
+                flexBasis: '50%',
+                justifyContent: 'flex-start',
+                backgroundSize: '100% 50%',
+            },
+            display: 'flex',
+            justifyContent: 'center',
+            fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
+            overflow: 'hidden'
         },
-        '100%': {
-          opacity: '1',
+        
+        sBigContainers: {
+            width: '50%',
+            '@media (max-width: 1030px)': {
+                width: 'inherit',
+                flexBasis: '50%',
+                overflow: 'hidden'
+            }
         },
-      },
-}
+    
+        sForm: {
+            height: '100%',
+            backgroundColor: 'white',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            opacity: '0.8'
+        },
+    
+        sForm2: {
+            backgroundColor: '#d2eaf7',
+            alignItems: 'normal'
+        },
+    
+        sContainerPlaylistsAndSongs: {
+            overflow: 'hidden',
+            height: '100%',
+            width: '100%',
+            display: 'flex'
+        },
+        
+        sSongsContainer: {
+            display: 'flex',
+            flexDirection: 'column',
+            marginLeft: '4%',
+            width: '100%',
+            fontSize: '0.9em', 
+            overflow: 'scroll'       
+        },
+    
+        sTabs: {
+            minWidth: '100%',
+            maxWidth: '100px'
+        },
+    
+        sSongAndButtonsCont: {
+            flexGrow: '1',
+            display: 'flex',
+            justifyContent: 'space-between',        
+            borderTop: 'dotted 1px'
+        },
+    
+        sContainerH2AndPlaylistadder: {
+            display: 'flex',
+            justifyContent: 'center'
+        },
+    
+        sContainerSongsSongadderDeleteplaylist: {
+            position: 'relative',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            fontSize: '0.9em',
+            wordBreak: 'break-all'
+        },
+    
+        secondContSongsSongsadderDeletepllstbttn: {
+            overflow: 'scroll',
+            marginLeft: '4%',
+            width: '100%'
+        },
+    
+        sDeletePlIcon: {
+            position: 'absolute',
+            bottom: '-5',
+            right: '0'
+        },
+    
+        sAnimation: {
+            animation: 'appear 0.5s ease'
+        },
+    
+        '@keyframes appear': {
+            '0%': {
+              opacity: '0',
+            },
+            '100%': {
+              opacity: '1',
+            },
+        },
+}); 
 
 class SecondPage extends Component {
     constructor(props) {
@@ -132,18 +150,20 @@ class SecondPage extends Component {
             .then( (response) => {
                 this.setState({ songs: response.data, isLoading: false })
             })
+            .catch(this.handleError);
     }
 
     handleAdd(genre) {
-        if (this.state.songs.namesOfUsersPlaylists.length < 10) {
-            axios.post('/api/songs', { genre })
-            // .then(response => console.log(response.data))
-            .then(response => this.setState({ songs: response.data }))
-            // .then( () => console.log(this.state) )
-            // .then(song => this.setState({ songs: { ...this.state.songs, song } }))
-            // .catch(this.handleError);
+        if (this.state.songs.namesOfUsersPlaylists.filter(playlist => playlist.toLowerCase() === genre.toLowerCase()).length > 0) {
+            alert("You already have a playlist with the same name")
         } else {
-            alert("You can't add more playlists");
+            if (this.state.songs.namesOfUsersPlaylists.length < 10) {
+                axios.post('/api/songs', { genre })
+                .then(response => this.setState({ songs: response.data }))
+                .catch(this.handleError);
+            } else {
+                alert("You can't add more playlists");
+            }
         }
     }
 
@@ -151,16 +171,15 @@ class SecondPage extends Component {
         let deletedPlaylist = this.state.songs.namesOfUsersPlaylists[this.state.value2];
         axios.delete(`/api/songs`, { data: { deletedPlaylist } } )
             .then(response => this.setState({ songs: response.data,  value2: NaN }))
+            .catch(this.handleError);
     }
 
     handleSongAdd(nameOfPlaylist, artistName, songName) {
-
-        if(this.state.songs[nameOfPlaylist].length < 10) {
+        if(this.state.songs[nameOfPlaylist].length < 14) {
             axios.put('api/songs', { nameOfPlaylist, artistName, songName })
             .then(response => this.setState({ songs: response.data }))
             .then( () => console.log(this.state) )
-
-        // console.log( nameOfPlaylist, artistName, songName );
+            .catch(this.handleError);
         } else {
             alert("You can't add more songs in this playlist");
         }        
@@ -168,8 +187,8 @@ class SecondPage extends Component {
 
     handleSongDelete(id, playlistName) {
         axios.delete(`/api/songs`, { data: { id, playlistName } } )
-        .then(response => this.setState({ songs: response.data }));
-        // console.log(id);
+        .then(response => this.setState({ songs: response.data }))
+        .catch(this.handleError);
     }
 
     handleChange(event, value) {
@@ -190,11 +209,11 @@ class SecondPage extends Component {
         const { classes } = this.props;
         const { songs, isLoading, value, value2 } = this.state;
 
-        const arr1 = [  {num: 0, genre: 'HipHop'}, 
+        const helperArr1 = [  {num: 0, genre: 'HipHop'}, 
                         {num: 1, genre: 'RockNRoll'}, 
                         {num: 2, genre: 'Funk'}, 
                         {num: 3, genre: 'Pop'} ];
-        const arr2 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+        const helperArr2 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
         
         return(            
     		<div className={classes.root} >
@@ -214,7 +233,7 @@ class SecondPage extends Component {
                             </Tabs>          
                             <div className={ classes.sSongsContainer  }>
 
-                                { arr1.map(obj => 
+                                { helperArr1.map(obj => 
                                     value === obj.num && !isLoading &&
                                         songs[obj.genre].map(song => <div className={ classes.sSongAndButtonsCont + ' ' + classes.sAnimation } >
                                                                         <Song key={ song.id } id={ song.id } name={ song.name } author={ song.author } />
@@ -244,7 +263,8 @@ class SecondPage extends Component {
                                 }
                             </Tabs>
                             <div className={ classes.secondContSongsSongsadderDeletepllstbttn }>
-                                { arr2.map(num => 
+
+                                { helperArr2.map(num => 
                                     <div className={ classes.sContainerSongsSongadderDeleteplaylist } >
                                         <div>
                                             { value2 === num && songs[ songs.namesOfUsersPlaylists[num] ].map(song => 
@@ -259,6 +279,7 @@ class SecondPage extends Component {
                                         </div>
                                     </div>
                                 )}
+                                
                             </div>
                         </div> 
                     </div>

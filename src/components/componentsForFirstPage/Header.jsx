@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Button from '@material-ui/core/Button';
@@ -32,7 +34,7 @@ const styles = {
     },
 
     sHeadersLoginButton: {
-        width: '70px',
+        width: '60px',
         height: '12px',
         flexBasis: '5%',
         marginRight: '1%'
@@ -60,13 +62,17 @@ class Header extends Component {
                         <MenuIcon />
                     </IconButton>
 
-                    <h1 className={classes.sHeadersH1}>Hello World</h1>
+                    <h1 className={classes.sHeadersH1}></h1>
                     <Button className={classes.sHeadersLoginButton} color="inherit">Login</Button> 
                 </div>
             </header>
         )
     }
 }
+
+Header.propTypes = {
+    onOpenMenu: PropTypes.func.isRequired
+};
 
 export default withStyles(styles)(Header);
 

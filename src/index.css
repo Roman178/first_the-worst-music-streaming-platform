@@ -1,43 +1,43 @@
-
 /* General */
 
 html {
-	margin: 0;
-	height: 300%;
+  margin: 0;
+  height: 300%;
 }
 
-body, #root {
-	margin: 0;
-	height: 100%;
+@media screen and (max-width: 1030px) {
+  html {
+    height: 400%;
+  }
 }
 
+body,
+#root {
+  margin: 0;
+  height: 100%;
+}
 
 /* Styles for Material UI components. I know it's bad. Sorry. */
 
-.MuiTabs-flexContainer-75 {
-	flex-direction: column;
-	height: 100%;
+.MuiTabs-flexContainer-69 {
+  flex-direction: column;
+  height: 100%;
 }
 
-.MuiTab-textColorInherit-85 {
-	min-width: 100%;
-	opacity: 0.4;
+.MuiTab-textColorInherit-79 {
+  min-width: 100%;
+  opacity: 0.4;
 }
 
-.MuiTab-textColorInherit-85.MuiTab-selected-88 {
-    border-right: solid 2px #f50057;
-    transition: border-right 0s .13s ease;
+.MuiTab-textColorInherit-79.MuiTab-selected-82 {
+  border-right: solid 2px #f50057;
+  transition: border-right 0s 0.13s ease;
 }
 
-.TabIndicator-colorSecondary-97 {
-    display: none;
+.MuiPrivateTabIndicator-colorSecondary-91 {
+  display: none;
 }
 
-.MuiTab-root-83 {
-	flex-grow: 1
+.MuiTab-root-77 {
+  flex-grow: 1;
 }
-
-
-
-
-

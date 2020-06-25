@@ -10,7 +10,13 @@ import { withStyles } from '@material-ui/core/styles';
 const styles = {
     root: {
         display: 'flex',
-        alignItems: 'center'
+        alignItems: 'center',
+        '@media (max-width: 450px)': {
+            flexBasis: '30%',
+            flexWrap: 'wrap',
+            alignItems: 'center',
+            justifyContent: 'flex-end'
+        }
     }
 }
 

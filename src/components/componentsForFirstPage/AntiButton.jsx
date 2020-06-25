@@ -13,7 +13,12 @@ const styles = {
     right: '0',
     margin: 'auto',
     width: '350px',
-    height: '420px'
+    height: '420px',
+    '@media (max-width: 812px)': {
+      width: '210px',
+      height: '220px',
+    },
+    borderRadius: '8px'
   }
 }
 
@@ -21,8 +26,9 @@ const styles = {
  class AntiButton extends Component {
   constructor(props) {
     super(props);
+    this.wrapperRef = React.createRef();
 
-    this.setWrapperRef = this.setWrapperRef.bind(this);
+    // this.setWrapperRef = this.setWrapperRef.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
   }
 
@@ -34,25 +40,25 @@ const styles = {
     document.removeEventListener('mousedown', this.handleClickOutside);
   }
 
-  setWrapperRef(node) {
-    this.wrapperRef = node;
-  }
+  // setWrapperRef(node) {
+  //   this.wrapperRef = node;
+  // }
 
   handleClickOutside(event) {
-    if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
+    if (this.wrapperRef.current && !this.wrapperRef.current.contains(event.target)) {
       this.props.onCloseMenu();
     }
   }
 
   render() {
     const { classes } = this.props;
-    return <div ref={this.setWrapperRef} className={ classes.root }> {this.props.children} </div>;
+    return <div ref={this.wrapperRef} className={ classes.root }> {this.props.children} </div>;
   }
 }
 
 AntiButton.propTypes = {
   children: PropTypes.element.isRequired,
-  onCloseMenu: PropTypes.func
+  onCloseMenu: PropTypes.func.isRequired
 };
 
 

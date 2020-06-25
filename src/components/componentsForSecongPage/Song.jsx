@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import { withStyles } from '@material-ui/core/styles';
 
@@ -9,18 +10,29 @@ const styles = {
 	}
 }
 
-function Song (props) {
-		const { classes } = props;
-		return (
+class Song extends Component {
+	constructor(props) {
+		super(props);
+	}
 
+	render() {
+		const { classes } = this.props;
+		return (
+	
 			<div className={ classes.root  } >
 				<div>
-					<span>{ props.author } - </span>
-					<span> { props.name } </span>
+					<span>{ this.props.author } - </span>
+					<span> { this.props.name } </span>
 				</div>
 			</div>
 		)
-	}
+	}	
+}
+
+Song.propTypes = {
+	author: PropTypes.string,
+	author: PropTypes.string
+}
 
 
 export default withStyles(styles)(Song);

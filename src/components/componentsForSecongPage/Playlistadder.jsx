@@ -1,7 +1,18 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
+import { withStyles } from '@material-ui/core/styles';
 
 import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
+
+const styles = {
+    root: {
+        display: 'flex',
+        alignItems: 'center',
+        marginLeft: '5%'
+    }
+}
 
 class Playlistadder extends Component {
     constructor(props) {
@@ -26,7 +37,6 @@ class Playlistadder extends Component {
         const { playlistTitle } = this.state;
         if ( playlistTitle ) {
            this.props.onAdd( playlistTitle );
-           
            this.setState({ playlistTitle: '' })
         };      
     }
@@ -35,14 +45,10 @@ class Playlistadder extends Component {
         this.inputRef = node;
     }
 
-    componentDidMount() {
-        console.log(this.inputRef);
-        console.log(this.inputRef.contains(this.inputRef));
-    }
-
-    render() {     
+    render() {   
+        const { classes } = this.props;  
         return (
-            <form > 
+            <form className={ classes.root }> 
                 
                 <div>
                     <input 
@@ -66,4 +72,8 @@ class Playlistadder extends Component {
     
 };
 
-export default Playlistadder;
+Playlistadder.propTypes = {
+    onAdd: PropTypes.func.isRequired
+}
+
+export default withStyles(styles)(Playlistadder);
