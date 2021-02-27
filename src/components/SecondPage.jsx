@@ -145,7 +145,7 @@ class SecondPage extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:3006")
+      .get("https://warm-bastion-65369.herokuapp.com")
       .then((response) => {
         this.setState({ songs: response.data, isLoading: false });
       })
@@ -162,7 +162,7 @@ class SecondPage extends Component {
     } else {
       if (this.state.songs.namesOfUsersPlaylists.length < 10) {
         axios
-          .post("http://localhost:3006", { genre })
+          .post("https://warm-bastion-65369.herokuapp.com", { genre })
           .then((response) => this.setState({ songs: response.data }))
           .catch(this.handleError);
       } else {
@@ -176,7 +176,9 @@ class SecondPage extends Component {
       this.state.value2
     ];
     axios
-      .delete(`http://localhost:3006`, { data: { deletedPlaylist } })
+      .delete(`https://warm-bastion-65369.herokuapp.com`, {
+        data: { deletedPlaylist },
+      })
       .then((response) => this.setState({ songs: response.data, value2: NaN }))
       .catch(this.handleError);
   }
@@ -184,7 +186,11 @@ class SecondPage extends Component {
   handleSongAdd(nameOfPlaylist, artistName, songName) {
     if (this.state.songs[nameOfPlaylist].length < 14) {
       axios
-        .put("http://localhost:3006", { nameOfPlaylist, artistName, songName })
+        .put("https://warm-bastion-65369.herokuapp.com", {
+          nameOfPlaylist,
+          artistName,
+          songName,
+        })
         .then((response) => this.setState({ songs: response.data }))
         .then(() => console.log(this.state))
         .catch(this.handleError);
@@ -195,7 +201,9 @@ class SecondPage extends Component {
 
   handleSongDelete(id, playlistName) {
     axios
-      .delete(`http://localhost:3006`, { data: { id, playlistName } })
+      .delete(`https://warm-bastion-65369.herokuapp.com`, {
+        data: { id, playlistName },
+      })
       .then((response) => this.setState({ songs: response.data }))
       .catch(this.handleError);
   }
