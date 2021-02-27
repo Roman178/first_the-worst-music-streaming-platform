@@ -1,10 +1,10 @@
 self.__precacheManifest = [
   {
-    "revision": "36a351efe155ab8ab2a7",
-    "url": "/first_the-worst-music-streaming-platform/static/css/main.f587b0f2.chunk.css"
+    "revision": "1e510a2838e781a96687",
+    "url": "/first_the-worst-music-streaming-platform/static/css/main.645ee020.chunk.css"
   },
   {
-    "revision": "36a351efe155ab8ab2a7",
+    "revision": "1e510a2838e781a96687",
     "url": "/first_the-worst-music-streaming-platform/static/js/main.5a235b32.chunk.js"
   },
   {
@@ -28,7 +28,7 @@ self.__precacheManifest = [
     "url": "/first_the-worst-music-streaming-platform/static/media/third.c56dd13d.png"
   },
   {
-    "revision": "5e30b27b35e0deef6499ff913619dd49",
+    "revision": "8dfed154f103b495669c2b6bd5252953",
     "url": "/first_the-worst-music-streaming-platform/index.html"
   }
 ];

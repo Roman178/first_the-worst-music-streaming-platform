@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/first_the-worst-music-streaming-platform/precache-manifest.2e2a7bad1955e6b8ecdeee5f8b058aef.js"
+  "/first_the-worst-music-streaming-platform/precache-manifest.e7151f3b340a55cb3755c1f6d470710f.js"
 );
 
 workbox.clientsClaim();
